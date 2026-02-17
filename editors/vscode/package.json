@@ -1,0 +1,59 @@
+{
+  "name": "rholang-lsp",
+  "displayName": "Rholang",
+  "description": "Rholang language support — syntax highlighting, diagnostics, goto definition, hover, rename",
+  "version": "0.1.0",
+  "publisher": "a-k-l-sdao",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/a-k-l-sdao/rholang-lsp"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:rholang"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "rholang",
+        "aliases": [
+          "Rholang",
+          "rho"
+        ],
+        "extensions": [
+          ".rho"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "configuration": {
+      "title": "Rholang",
+      "properties": {
+        "rholang.lsp.path": {
+          "type": "string",
+          "default": "rholang-lsp",
+          "description": "Path to the rholang-lsp binary"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "package": "npx @vscode/vsce package"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.75.0",
+    "typescript": "^5.0.0",
+    "@vscode/vsce": "^3.0.0"
+  }
+}
